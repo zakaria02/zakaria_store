@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../common/widgets/custom_scaffold.dart';
 import '../../../common/constants/constants.dart';
+import 'categories/views/categories_view.dart';
 
 /// Displays a list of product by there categories
 /// [all products] category is selected by default
@@ -15,7 +16,14 @@ class ProductListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const CustomScaffold(
       title: Constants.productListPageTitle,
-      body: Text("Products List"),
+      body: Column(
+        children: [
+          CategoriesView(),
+          SizedBox(
+            height: 30,
+          ),
+        ],
+      ),
     );
   }
 }

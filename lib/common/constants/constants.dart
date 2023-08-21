@@ -12,6 +12,7 @@ class Constants {
   //Global configuration
   static const timeoutDuration = Duration(seconds: 20);
   static const String baseUrl = "https://fakestoreapi.com";
+  static const String networkErrorTitle = "Network error";
 
   // Text styles
   static TextStyle titleStyle = GoogleFonts.poppins(
@@ -21,6 +22,14 @@ class Constants {
     letterSpacing: 2,
   );
 
+  static TextStyle categoryTitleStyle = GoogleFonts.quicksand(
+    fontSize: 18,
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
+  );
+
   // Products list page
   static const productListPageTitle = "Zakaria's store";
+  static Color selectedCategoryColor = Colors.grey[200]!;
+  static const Color defaultCategoryColor = Colors.white;
 }

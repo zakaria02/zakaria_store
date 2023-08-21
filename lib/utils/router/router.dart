@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 
-import '../../screens/product_list/feature/product_list_screen.dart';
+import '../../screens/products_list/feature/product_list_screen.dart';
 
 part 'router.gr.dart';
 
