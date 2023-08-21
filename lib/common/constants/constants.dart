@@ -17,6 +17,7 @@ class Constants {
   static const String baseUrl = "https://fakestoreapi.com";
   static const String networkErrorTitle = "Network error";
   static const String currency = '€';
+  static const String _assets = "assets/svg";
 
   // Text styles
   static TextStyle titleStyle = GoogleFonts.poppins(
@@ -70,9 +71,15 @@ class Constants {
   static Color selectedCategoryColor = Colors.grey[200]!;
   static const Color defaultCategoryColor = Colors.white;
 
+  // Product details
+  static const noProductFoundAsset = "$_assets/no_product.svg";
+  static const noProductFoundTitle = "Product not found";
+  static const noProductFoundText = "No product found to display";
+  static const noProductFoundButtonText = "OK";
+
   // Cart page
   static const cartPageTitle = "Order details";
-  static const emptyCartAsset = "assets/svg/empty_cart.svg";
+  static const emptyCartAsset = "$_assets/empty_cart.svg";
   static const emptyCartMessage = "No product added to your cart.";
   static const emptyCartButtonText = "CONTINUE SHOPPING";
   static const addProductTitle = "Add Product";

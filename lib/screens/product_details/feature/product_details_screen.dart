@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flash/flash_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_touch_spin/flutter_touch_spin.dart';
 import 'package:intl/intl.dart';
 import 'package:unicons/unicons.dart';
@@ -21,6 +22,7 @@ import 'cubit/product_to_purchase_cubit.dart';
 part 'views/product_top_info_view.dart';
 part 'views/product_detailed_info_view.dart';
 part 'views/product_purchase_view.dart';
+part 'views/product_not_found_view.dart';
 
 /// Display [ProductUio] detailed infos and give the use the possibility to
 /// Add product to card
@@ -32,30 +34,35 @@ class ProductDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProductToPurchaseCubit, ProductToPurchaseState>(
       builder: (context, productToPurchaseState) {
-        return CustomScaffold(
-          title: productToPurchaseState.product!.title,
-          body: ListView(
-            children: [
-              ProductTopInfo(
-                imageUrl: productToPurchaseState.product!.image,
-                title: productToPurchaseState.product!.title,
-                price: productToPurchaseState.product!.unitPrice,
-                rating: productToPurchaseState.product!.rating,
-              ),
-              ProductDetailedInfo(
-                description: productToPurchaseState.product!.description,
-                quantity: productToPurchaseState.product!.quantity,
-              ),
-              ProductPurchase(
-                price: productToPurchaseState.product!.totalPrice,
-                addToCart: () =>
-                    BlocProvider.of<CartBloc>(context).add(AddProductToCart(
-                  product: productToPurchaseState.product!,
-                )),
-              ),
-            ],
-          ),
-        );
+        return productToPurchaseState.product != null
+            ? CustomScaffold(
+                title: productToPurchaseState.product?.title ?? "",
+                body: ListView(
+                  children: [
+                    ProductTopInfo(
+                      imageUrl: productToPurchaseState.product!.image,
+                      title: productToPurchaseState.product!.title,
+                      price: productToPurchaseState.product!.unitPrice,
+                      rating: productToPurchaseState.product!.rating,
+                    ),
+                    ProductDetailedInfo(
+                      description: productToPurchaseState.product!.description,
+                      quantity: productToPurchaseState.product!.quantity,
+                    ),
+                    ProductPurchase(
+                      price: productToPurchaseState.product!.totalPrice,
+                      addToCart: () => BlocProvider.of<CartBloc>(context)
+                          .add(AddProductToCart(
+                        product: productToPurchaseState.product!,
+                      )),
+                    ),
+                  ],
+                ),
+              )
+            : const CustomScaffold(
+                body: ProductNotFoundView(),
+                title: Constants.noProductFoundTitle,
+              );
       },
     );
   }
