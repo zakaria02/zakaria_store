@@ -11,7 +11,7 @@ class ProductDto {
   @JsonKey(name: "title")
   final String title;
   @JsonKey(name: "price")
-  final double price;
+  final double unitPrice;
   @JsonKey(name: "description")
   final String description;
   @JsonKey(name: "category")
@@ -24,7 +24,7 @@ class ProductDto {
   const ProductDto({
     required this.id,
     required this.title,
-    required this.price,
+    required this.unitPrice,
     required this.description,
     required this.category,
     required this.image,
@@ -41,7 +41,7 @@ extension ProductDtoMappers on ProductDto {
     return ProductUio(
       id: id,
       title: title,
-      price: price,
+      unitPrice: unitPrice,
       description: description,
       category: category,
       image: image,

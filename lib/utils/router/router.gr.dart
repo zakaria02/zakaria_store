@@ -22,13 +22,9 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ProductDetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<ProductDetailsRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: ProductDetailsPage(
-          key: args.key,
-          product: args.product,
-        ),
+        child: const ProductDetailsScreen(),
       );
     },
     ProductListRoute.name: (routeData) {
@@ -55,41 +51,17 @@ class CartRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [ProductDetailsPage]
-class ProductDetailsRoute extends PageRouteInfo<ProductDetailsRouteArgs> {
-  ProductDetailsRoute({
-    Key? key,
-    required ProductUio product,
-    List<PageRouteInfo>? children,
-  }) : super(
+/// [ProductDetailsScreen]
+class ProductDetailsRoute extends PageRouteInfo<void> {
+  const ProductDetailsRoute({List<PageRouteInfo>? children})
+      : super(
           ProductDetailsRoute.name,
-          args: ProductDetailsRouteArgs(
-            key: key,
-            product: product,
-          ),
           initialChildren: children,
         );
 
   static const String name = 'ProductDetailsRoute';
 
-  static const PageInfo<ProductDetailsRouteArgs> page =
-      PageInfo<ProductDetailsRouteArgs>(name);
-}
-
-class ProductDetailsRouteArgs {
-  const ProductDetailsRouteArgs({
-    this.key,
-    required this.product,
-  });
-
-  final Key? key;
-
-  final ProductUio product;
-
-  @override
-  String toString() {
-    return 'ProductDetailsRouteArgs{key: $key, product: $product}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'screens/product_details/feature/cubit/product_to_purchase_cubit.dart';
 import 'screens/products_list/feature/categories/bloc/categories_bloc.dart';
 import 'screens/products_list/feature/products/bloc/products_bloc.dart';
 import 'utils/bloc/bloc_observer.dart';
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => ProductsBloc()..add(FetchAllProducts()),
+          ),
+          BlocProvider(
+            create: (context) => ProductToPurchaseCubit(),
           ),
         ],
         child: MaterialApp.router(

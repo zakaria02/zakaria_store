@@ -9,6 +9,7 @@ import '../../../../../common/widgets/price.dart';
 import '../../../../../common/widgets/toast.dart';
 import '../../../../../common/constants/constants.dart';
 import '../../../../../utils/router/router.dart';
+import '../../../../product_details/feature/cubit/product_to_purchase_cubit.dart';
 import '../bloc/products_bloc.dart';
 import '../models/product_uio.dart';
 

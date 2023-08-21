@@ -1,7 +1,9 @@
+import '../../../../cart/models/product_to_purchase_uio.dart';
+
 class ProductUio {
   final int id;
   final String title;
-  final double price;
+  final double unitPrice;
   final String description;
   final String category;
   final String image;
@@ -10,12 +12,27 @@ class ProductUio {
   const ProductUio({
     required this.id,
     required this.title,
-    required this.price,
+    required this.unitPrice,
     required this.description,
     required this.category,
     required this.image,
     required this.rating,
   });
+}
+
+extension ProductToPurchaseUioMappers on ProductUio {
+  ProductToPurchaseUio toProductToPurchaseUio() {
+    return ProductToPurchaseUio(
+      id: id,
+      title: title,
+      unitPrice: unitPrice,
+      description: description,
+      category: category,
+      image: image,
+      quantity: 1,
+      rating: rating,
+    );
+  }
 }
 
 class RatingUio {

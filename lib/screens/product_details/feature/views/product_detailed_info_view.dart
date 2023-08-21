@@ -49,6 +49,9 @@ class ProductDetailedInfo extends StatelessWidget {
                   value: 1,
                   iconPadding: const EdgeInsets.symmetric(horizontal: 20),
                   displayFormat: NumberFormat.compact(),
+                  onChanged: (quantity) =>
+                      BlocProvider.of<ProductToPurchaseCubit>(context)
+                          .updateQuantity(quantity.toInt()),
                 ),
               ),
             ],

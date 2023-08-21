@@ -12,7 +12,11 @@ class ProductView extends StatelessWidget {
     return Hero(
       tag: product.id,
       child: GestureDetector(
-        onTap: () => context.router.push(ProductDetailsRoute(product: product)),
+        onTap: () {
+          BlocProvider.of<ProductToPurchaseCubit>(context)
+              .startPurchaseProduct(product.toProductToPurchaseUio());
+          context.router.push(const ProductDetailsRoute());
+        },
         child: Padding(
           padding: const EdgeInsets.only(bottom: 20),
           child: SizedBox(
@@ -90,7 +94,7 @@ class ProductView extends StatelessWidget {
                               ),
                               FadeAnimation(
                                 1.3,
-                                PriceWidget(price: product.price),
+                                PriceWidget(price: product.unitPrice),
                               ),
                             ],
                           ),
