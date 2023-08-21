@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'utils/bloc/bloc_observer.dart';
 import 'utils/di/locator.dart';
+import 'utils/router/router.dart';
 
 void main() {
   // This will let us observe any change that is happening in the Bloc
@@ -18,8 +19,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(),
+    return MaterialApp.router(
+      routerConfig: AppRouter().config(),
     );
   }
 }
