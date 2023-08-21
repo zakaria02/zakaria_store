@@ -7,7 +7,7 @@ class RoundedButton extends StatefulWidget {
   final Color color, textColor;
   final VoidCallback? press;
   final bool loading;
-  final IconData icon;
+  final IconData? icon;
   const RoundedButton({
     Key? key,
     required this.text,
@@ -15,7 +15,7 @@ class RoundedButton extends StatefulWidget {
     required this.textColor,
     required this.press,
     this.loading = false,
-    required this.icon,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -53,18 +53,21 @@ class _RoundedButtonState extends State<RoundedButton> {
       child: widget.loading
           ? loadingWidget()
           : Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Flexible(
-                  flex: 1,
-                  child: Icon(
-                    widget.icon,
-                    color: widget.textColor,
-                    size: Constants.iconSize,
+                Visibility(
+                  visible: widget.icon != null,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Icon(
+                      widget.icon,
+                      color: widget.textColor,
+                      size: Constants.iconSize,
+                    ),
                   ),
                 ),
-                const Spacer(),
                 Flexible(
-                  flex: 6,
+                  flex: 3,
                   child: Text(
                     widget.text,
                     selectionColor: widget.textColor,

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
+import '../../utils/router/router.dart';
 import '../constants/constants.dart';
 
 /// Custom AppBar displayes a menu and cart button.
@@ -36,14 +37,15 @@ class CustomAppBar extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          IconButton(
-            onPressed: () {
-              // TODO add action to go to cart
-            },
-            icon: const Icon(
-              UniconsLine.shopping_cart,
-              color: Constants.iconColor,
-              size: Constants.iconSize,
+          Visibility(
+            visible: context.router.current.name != CartRoute.name,
+            child: IconButton(
+              onPressed: () => context.router.push(const CartRoute()),
+              icon: const Icon(
+                UniconsLine.shopping_cart,
+                color: Constants.iconColor,
+                size: Constants.iconSize,
+              ),
             ),
           ),
         ],

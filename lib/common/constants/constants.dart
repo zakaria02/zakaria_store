@@ -8,6 +8,8 @@ class Constants {
   static const backgroundPrimary = Colors.white;
   static const double iconSize = 30.0;
   static const Color iconColor = Colors.black;
+  static Color buttonColor = Colors.grey[800]!;
+  static const Color buttonTextColor = Colors.white;
 
   //Global configuration
   static const timeoutDuration = Duration(seconds: 20);
@@ -61,4 +63,10 @@ class Constants {
   static const defaultCategoryName = "all products";
   static Color selectedCategoryColor = Colors.grey[200]!;
   static const Color defaultCategoryColor = Colors.white;
+
+  // Cart page
+  static const cartPageTitle = "Order details";
+  static const emptyCartAsset = "assets/svg/empty_cart.svg";
+  static const emptyCartMessage = "No product added to your cart.";
+  static const emptyCartButtonText = "CONTINUE SHOPPING";
 }

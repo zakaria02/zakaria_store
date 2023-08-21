@@ -32,8 +32,8 @@ class ProductPurchase extends StatelessWidget {
             child: RoundedButton(
               text: "Add to Cart",
               icon: UniconsLine.shopping_bag,
-              color: Colors.grey[800]!,
-              textColor: Colors.white,
+              color: Constants.buttonColor,
+              textColor: Constants.buttonTextColor,
               press: () {},
             ),
           )
