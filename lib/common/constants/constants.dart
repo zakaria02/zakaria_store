@@ -11,6 +11,7 @@ class Constants {
 
   //Global configuration
   static const timeoutDuration = Duration(seconds: 20);
+  static const String baseUrl = "https://fakestoreapi.com";
 
   // Text styles
   static TextStyle titleStyle = GoogleFonts.poppins(
