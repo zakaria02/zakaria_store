@@ -79,7 +79,7 @@ class ProductView extends StatelessWidget {
                               ),
                               SubTitle(
                                 title: "Category",
-                                value: product.category.name,
+                                value: product.category,
                               ),
                               SubTitle(
                                 title: "Rating",

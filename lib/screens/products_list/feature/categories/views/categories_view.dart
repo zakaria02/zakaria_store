@@ -5,8 +5,8 @@ import 'package:shimmer/shimmer.dart';
 
 import '../../../../../common/widgets/toast.dart';
 import '../../../../../common/constants/constants.dart';
+import '../../products/bloc/products_bloc.dart';
 import '../bloc/categories_bloc.dart';
-import '../models/category_uio.dart';
 
 part 'category_view.dart';
 part 'category_loading_view.dart';

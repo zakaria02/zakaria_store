@@ -1,11 +1,9 @@
-import '../../categories/models/category_uio.dart';
-
 class ProductUio {
   final int id;
   final String title;
   final double price;
   final String description;
-  final CategoryUio category;
+  final String category;
   final String image;
   final RatingUio rating;
 

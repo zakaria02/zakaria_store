@@ -5,27 +5,27 @@ part of 'categories_view.dart';
 class CategoryView extends StatelessWidget {
   const CategoryView({super.key, required this.category});
 
-  final CategoryUio category;
+  final String category;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        BlocProvider.of<CategoriesBloc>(context)
-            .add(UpdateSelectedCategory(selectedCategory: category));
+        BlocProvider.of<ProductsBloc>(context)
+            .add(FetchCategoryProducts(selectedCategory: category));
       },
       child: AspectRatio(
-          aspectRatio: category.name.length / 3.6,
+          aspectRatio: category.length / 3.6,
           child: Container(
             decoration: BoxDecoration(
-              color: category.selected
+              color: category == context.watch<ProductsBloc>().state.category
                   ? Constants.selectedCategoryColor
                   : Constants.defaultCategoryColor,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Center(
               child: Text(
-                category.name,
+                category,
                 style: Constants.categoryTitleStyle,
                 textAlign: TextAlign.center,
               ),

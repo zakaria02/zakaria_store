@@ -8,11 +8,3 @@ sealed class CategoriesEvent extends Equatable {
 }
 
 final class FetchCategories extends CategoriesEvent {}
-
-final class UpdateSelectedCategory extends CategoriesEvent {
-  const UpdateSelectedCategory({required this.selectedCategory});
-  final CategoryUio selectedCategory;
-
-  @override
-  List<Object> get props => [selectedCategory];
-}

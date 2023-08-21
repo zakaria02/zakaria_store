@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../feature/categories/models/category_uio.dart';
 import '../../feature/products/models/product_uio.dart';
 
 part 'product_dto.g.dart';
@@ -44,7 +43,7 @@ extension ProductDtoMappers on ProductDto {
       title: title,
       price: price,
       description: description,
-      category: CategoryUio(name: category, selected: false),
+      category: category,
       image: image,
       rating: rating.toRatingUio(),
     );
