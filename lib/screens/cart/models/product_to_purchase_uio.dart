@@ -1,4 +1,5 @@
 import '../../products_list/feature/products/models/product_uio.dart';
+import '../business/dtos/product_to_purchase_dto.dart';
 
 class ProductToPurchaseUio extends ProductUio {
   int quantity;
@@ -35,4 +36,19 @@ class ProductToPurchaseUio extends ProductUio {
       );
 
   double get totalPrice => unitPrice * quantity;
+}
+
+extension ProductToPurchaseUioMappers on ProductToPurchaseUio {
+  ProductToPurchaseDto toProductToPurchaseDto() {
+    return ProductToPurchaseDto(
+      id: id,
+      title: title,
+      unitPrice: unitPrice,
+      description: description,
+      category: category,
+      image: image,
+      quantity: quantity,
+      rating: rating.toRatingDto(),
+    );
+  }
 }

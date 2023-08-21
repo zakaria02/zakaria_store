@@ -1,4 +1,5 @@
 import '../../../../cart/models/product_to_purchase_uio.dart';
+import '../../../business/dtos/product_dto.dart';
 
 class ProductUio {
   final int id;
@@ -40,4 +41,13 @@ class RatingUio {
   final int count;
 
   const RatingUio({required this.rate, required this.count});
+}
+
+extension RatingUioMappers on RatingUio {
+  RatingDto toRatingDto() {
+    return RatingDto(
+      rate: rate,
+      count: count,
+    );
+  }
 }

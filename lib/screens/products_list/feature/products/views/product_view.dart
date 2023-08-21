@@ -41,14 +41,8 @@ class ProductView extends StatelessWidget {
                             1,
                             Padding(
                               padding: const EdgeInsets.only(right: 12.0),
-                              child: Image.network(
-                                product.image,
-                                errorBuilder: (context, error, stackTrace) {
-                                  return const Icon(
-                                    UniconsLine.image_slash,
-                                    size: Constants.iconSize,
-                                  );
-                                },
+                              child: NetworkImageOrDefault(
+                                imageUrl: product.image,
                               ),
                             ),
                           ),

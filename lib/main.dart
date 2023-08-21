@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
 
+import 'screens/cart/bloc/cart_bloc.dart';
+import 'screens/cart/business/dtos/product_to_purchase_dto.dart';
 import 'screens/product_details/feature/cubit/product_to_purchase_cubit.dart';
+import 'screens/products_list/business/dtos/product_dto.dart';
 import 'screens/products_list/feature/categories/bloc/categories_bloc.dart';
 import 'screens/products_list/feature/products/bloc/products_bloc.dart';
 import 'utils/bloc/bloc_observer.dart';
@@ -17,6 +21,12 @@ void main() async {
   AppLocator();
   // Init path provider for cache
   await AppPathProvider.initPath();
+  // Initialize hive
+  Hive
+    ..init(AppPathProvider.path)
+    ..registerAdapter(ProductToPurchaseDtoAdapter())
+    ..registerAdapter(RatingDtoAdapter());
+
   // Launch App
   runApp(const MyApp());
 }
@@ -36,6 +46,9 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => ProductToPurchaseCubit(),
+          ),
+          BlocProvider(
+            create: (context) => CartBloc()..add(const FetchProductsFromCart()),
           ),
         ],
         child: MaterialApp.router(

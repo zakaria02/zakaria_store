@@ -72,6 +72,7 @@ class _RoundedButtonState extends State<RoundedButton> {
                     widget.text,
                     selectionColor: widget.textColor,
                     style: Constants.buttonText,
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ],

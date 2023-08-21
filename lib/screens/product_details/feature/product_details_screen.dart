@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flash/flash_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_touch_spin/flutter_touch_spin.dart';
@@ -9,8 +10,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../../common/animations/fade_animation.dart';
 import '../../../common/constants/constants.dart';
 import '../../../common/widgets/custom_scaffold.dart';
+import '../../../common/widgets/network_image_or_default.dart';
 import '../../../common/widgets/price.dart';
 import '../../../common/widgets/rounded_button.dart';
+import '../../../common/widgets/toast.dart';
+import '../../cart/bloc/cart_bloc.dart';
 import '../../products_list/feature/products/models/product_uio.dart';
 import 'cubit/product_to_purchase_cubit.dart';
 
@@ -44,6 +48,10 @@ class ProductDetailsScreen extends StatelessWidget {
               ),
               ProductPurchase(
                 price: productToPurchaseState.product!.totalPrice,
+                addToCart: () =>
+                    BlocProvider.of<CartBloc>(context).add(AddProductToCart(
+                  product: productToPurchaseState.product!,
+                )),
               ),
             ],
           ),

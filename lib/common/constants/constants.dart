@@ -43,6 +43,12 @@ class Constants {
     fontSize: 20,
   );
 
+  static TextStyle h3 = GoogleFonts.firaSans(
+    color: Colors.black,
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
+
   static TextStyle body = GoogleFonts.firaSans(
     color: Colors.black,
     fontSize: 17,
@@ -69,4 +75,8 @@ class Constants {
   static const emptyCartAsset = "assets/svg/empty_cart.svg";
   static const emptyCartMessage = "No product added to your cart.";
   static const emptyCartButtonText = "CONTINUE SHOPPING";
+  static const addProductTitle = "Add Product";
+  static const addProductMessage = "Product added successfully";
+  static const cartHiveBox = "cart_box";
+  static const cartCheckoutTitle = "Checkout";
 }

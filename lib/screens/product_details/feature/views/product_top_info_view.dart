@@ -19,12 +19,9 @@ class ProductTopInfo extends StatelessWidget {
       0.7,
       Column(
         children: [
-          Image.network(
-            imageUrl,
+          NetworkImageOrDefault(
+            imageUrl: imageUrl,
             height: 300,
-            errorBuilder: (context, error, stackTrace) {
-              return const Icon(UniconsLine.image_slash);
-            },
           ),
           const SizedBox(
             height: 20,

@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 
+import '../../screens/cart/business/di/locator.dart';
 import '../../screens/products_list/business/di/locator.dart';
 import '../network/locator.dart';
 
@@ -22,5 +23,6 @@ class AppLocator extends AbstractLocator {
     // Add your locators here
     DioLocator().setUp(serviceLocator);
     ProductsLocator().setUp(serviceLocator);
+    CartLocator().setUp(serviceLocator);
   }
 }

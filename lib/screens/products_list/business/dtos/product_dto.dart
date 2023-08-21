@@ -1,3 +1,4 @@
+import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../feature/products/models/product_uio.dart';
@@ -5,23 +6,30 @@ import '../../feature/products/models/product_uio.dart';
 part 'product_dto.g.dart';
 
 @JsonSerializable()
-class ProductDto {
+class ProductDto extends HiveObject {
+  @HiveField(0)
   @JsonKey(name: "id")
   final int id;
+  @HiveField(1)
   @JsonKey(name: "title")
   final String title;
+  @HiveField(2)
   @JsonKey(name: "price")
   final double unitPrice;
+  @HiveField(3)
   @JsonKey(name: "description")
   final String description;
+  @HiveField(4)
   @JsonKey(name: "category")
   final String category;
+  @HiveField(5)
   @JsonKey(name: "image")
   final String image;
+  @HiveField(6)
   @JsonKey(name: "rating")
   final RatingDto rating;
 
-  const ProductDto({
+  ProductDto({
     required this.id,
     required this.title,
     required this.unitPrice,
@@ -51,13 +59,16 @@ extension ProductDtoMappers on ProductDto {
 }
 
 @JsonSerializable()
-class RatingDto {
+@HiveType(typeId: 1)
+class RatingDto extends HiveObject {
+  @HiveField(0)
   @JsonKey(name: "rate")
   final double rate;
+  @HiveField(1)
   @JsonKey(name: "count")
   final int count;
 
-  const RatingDto({
+  RatingDto({
     required this.rate,
     required this.count,
   });
