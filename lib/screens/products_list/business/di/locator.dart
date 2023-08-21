@@ -6,6 +6,7 @@ import '../repository/products_repository.dart';
 import '../repository/products_repository_impl.dart';
 import '../service/products_service.dart';
 import '../usecase/fetch_all_categories_usecase.dart';
+import '../usecase/fetch_all_products_usecase.dart';
 
 /// Products locator contains
 /// [ProductsService]
@@ -28,5 +29,7 @@ class ProductsLocator extends AbstractLocator {
         () => ProductsRepositoryImpl());
     serviceLocator.registerLazySingleton<FetchAllCategoriesUseCase>(
         () => FetchAllCategoriesUseCase());
+    serviceLocator.registerLazySingleton<FetchAllProductsUseCase>(
+        () => FetchAllProductsUseCase());
   }
 }
