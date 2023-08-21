@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'screens/products_list/feature/categories/bloc/categories_bloc.dart';
+import 'screens/products_list/feature/products/bloc/products_bloc.dart';
 import 'utils/bloc/bloc_observer.dart';
 import 'utils/di/locator.dart';
 import 'utils/network/app_path_provider.dart';
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) => CategoriesBloc()..add(FetchCategories()),
+          ),
+          BlocProvider(
+            create: (context) => ProductsBloc()..add(FetchAllProducts()),
           ),
         ],
         child: MaterialApp.router(

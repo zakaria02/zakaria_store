@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flash/flash.dart';
 import 'package:unicons/unicons.dart';
 
+/// [_Toast] defines the app toasts design
 abstract class _Toast extends StatelessWidget {
   const _Toast({
     super.key,
@@ -52,6 +53,7 @@ abstract class _Toast extends StatelessWidget {
   }
 }
 
+/// Displayed in case of success
 class SuccessToast extends _Toast {
   const SuccessToast({
     super.key,
@@ -63,6 +65,7 @@ class SuccessToast extends _Toast {
   });
 }
 
+/// Displayed in case of error
 class ErrorToast extends _Toast {
   const ErrorToast({
     super.key,
@@ -74,6 +77,7 @@ class ErrorToast extends _Toast {
   });
 }
 
+/// Displayed in case of information
 class InformationToast extends _Toast {
   const InformationToast({
     super.key,
@@ -85,6 +89,7 @@ class InformationToast extends _Toast {
   });
 }
 
+/// Displayed in case of warning
 class WarningToast extends _Toast {
   const WarningToast({
     super.key,

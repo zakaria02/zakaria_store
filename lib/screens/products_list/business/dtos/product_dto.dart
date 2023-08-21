@@ -1,5 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../feature/categories/models/category_uio.dart';
+import '../../feature/products/models/product_uio.dart';
+
 part 'product_dto.g.dart';
 
 @JsonSerializable()
@@ -34,6 +37,20 @@ class ProductDto {
   Map<String, dynamic> toJson() => _$ProductDtoToJson(this);
 }
 
+extension ProductDtoMappers on ProductDto {
+  ProductUio toProductUio() {
+    return ProductUio(
+      id: id,
+      title: title,
+      price: price,
+      description: description,
+      category: CategoryUio(name: category, selected: false),
+      image: image,
+      rating: rating.toRatingUio(),
+    );
+  }
+}
+
 @JsonSerializable()
 class RatingDto {
   @JsonKey(name: "rate")
@@ -49,4 +66,10 @@ class RatingDto {
   factory RatingDto.fromJson(Map<String, dynamic> json) =>
       _$RatingDtoFromJson(json);
   Map<String, dynamic> toJson() => _$RatingDtoToJson(this);
+}
+
+extension RatingDtoMappers on RatingDto {
+  RatingUio toRatingUio() {
+    return RatingUio(rate: rate, count: count);
+  }
 }

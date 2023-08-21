@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../common/widgets/custom_scaffold.dart';
 import '../../../common/constants/constants.dart';
 import 'categories/views/categories_view.dart';
+import 'products/views/products_view.dart';
 
 /// Displays a list of product by there categories
 /// [all products] category is selected by default
@@ -22,6 +23,7 @@ class ProductListScreen extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
+          ProductsView(),
         ],
       ),
     );

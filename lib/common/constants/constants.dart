@@ -11,6 +11,7 @@ class Constants {
 
   //Global configuration
   static const timeoutDuration = Duration(seconds: 20);
+  static const toastDuration = Duration(seconds: 10);
   static const String baseUrl = "https://fakestoreapi.com";
   static const String networkErrorTitle = "Network error";
 
@@ -26,6 +27,22 @@ class Constants {
     fontSize: 18,
     color: Colors.black,
     fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle h1 = GoogleFonts.firaSans(
+    color: Colors.black,
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle body = GoogleFonts.firaSans(
+    color: Colors.black,
+    fontSize: 17,
+  );
+
+  static TextStyle h3 = GoogleFonts.firaSans(
+    color: Colors.grey[600]!,
+    fontSize: 16,
   );
 
   // Products list page
