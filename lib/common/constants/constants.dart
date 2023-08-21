@@ -9,6 +9,9 @@ class Constants {
   static const double iconSize = 30.0;
   static const Color iconColor = Colors.black;
 
+  //Global configuration
+  static const timeoutDuration = Duration(seconds: 20);
+
   // Text styles
   static TextStyle titleStyle = GoogleFonts.poppins(
     color: Colors.black,
