@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flash/flash_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +8,7 @@ import '../../../../../common/animations/fade_animation.dart';
 import '../../../../../common/widgets/price.dart';
 import '../../../../../common/widgets/toast.dart';
 import '../../../../../common/constants/constants.dart';
+import '../../../../../utils/router/router.dart';
 import '../bloc/products_bloc.dart';
 import '../models/product_uio.dart';
 

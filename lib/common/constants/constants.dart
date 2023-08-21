@@ -14,6 +14,7 @@ class Constants {
   static const toastDuration = Duration(seconds: 10);
   static const String baseUrl = "https://fakestoreapi.com";
   static const String networkErrorTitle = "Network error";
+  static const String currency = '€';
 
   // Text styles
   static TextStyle titleStyle = GoogleFonts.poppins(
@@ -31,8 +32,13 @@ class Constants {
 
   static TextStyle h1 = GoogleFonts.firaSans(
     color: Colors.black,
-    fontSize: 18,
+    fontSize: 23,
     fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle h2 = GoogleFonts.firaSans(
+    color: Colors.black,
+    fontSize: 20,
   );
 
   static TextStyle body = GoogleFonts.firaSans(
@@ -40,9 +46,14 @@ class Constants {
     fontSize: 17,
   );
 
-  static TextStyle h3 = GoogleFonts.firaSans(
+  static TextStyle subTitleStyle = GoogleFonts.firaSans(
     color: Colors.grey[600]!,
     fontSize: 16,
+  );
+
+  static TextStyle buttonText = GoogleFonts.quicksand(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
   );
 
   // Products list page

@@ -12,11 +12,11 @@ class ProductView extends StatelessWidget {
     return Hero(
       tag: product.id,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () => context.router.push(ProductDetailsRoute(product: product)),
         child: Padding(
           padding: const EdgeInsets.only(bottom: 20),
           child: SizedBox(
-            height: 260,
+            height: 270,
             width: double.infinity,
             child: Card(
               shape: RoundedRectangleBorder(
@@ -58,7 +58,7 @@ class ProductView extends StatelessWidget {
                                 1,
                                 Text(
                                   product.title,
-                                  style: Constants.h1,
+                                  style: Constants.h2,
                                   maxLines: 2,
                                 ),
                               ),
@@ -119,7 +119,7 @@ class SubTitle extends StatelessWidget {
         1.2,
         Text(
           "$title: $value",
-          style: Constants.h3,
+          style: Constants.subTitleStyle,
           maxLines: 3,
           overflow: TextOverflow.ellipsis,
         ));

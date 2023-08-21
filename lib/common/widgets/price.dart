@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/constants.dart';
+
 /// Displays the price in a yellow container
 /// [price] is the price to display
 class PriceWidget extends StatelessWidget {
@@ -15,7 +17,7 @@ class PriceWidget extends StatelessWidget {
       ),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Text(
-        "$price €",
+        "${price.toStringAsFixed(2)} ${Constants.currency}",
         style: const TextStyle(
             color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
       ),
