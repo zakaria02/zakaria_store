@@ -15,4 +15,9 @@ class ProductsRepositoryImpl extends ProductsRepository {
   Future<List<ProductDto>> fetchAllProducts() {
     return _productsService.fetchAllProducts();
   }
+
+  @override
+  Future<List<ProductDto>> fetchCategoryProducts(String category) {
+    return _productsService.fetchCategoryProducts(category);
+  }
 }

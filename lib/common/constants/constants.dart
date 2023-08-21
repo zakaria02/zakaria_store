@@ -47,6 +47,7 @@ class Constants {
 
   // Products list page
   static const productListPageTitle = "Zakaria's store";
+  static const defaultCategoryName = "all products";
   static Color selectedCategoryColor = Colors.grey[200]!;
   static const Color defaultCategoryColor = Colors.white;
 }
