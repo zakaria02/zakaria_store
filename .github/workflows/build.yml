@@ -31,6 +31,5 @@ jobs:
         run: melos build:pub_get:all
       - name: 🤖🔨 Build Android app
         run: |
-          pushd app/
           flutter build appbundle --debug --flavor dev -t lib/main_dev.dart
           popd
