@@ -1,0 +1,70 @@
+name: flutter_ci_cd_demo
+
+packages:
+  - app
+
+scripts:
+  ###############################################
+  ##              BUILD COMMANDS               ##
+  ###############################################
+  build:pub_get:all:
+    run: flutter pub get
+    exec:
+      concurrency: 6
+    description: Install all dependencies
+
+  build:clean:
+    run: |
+      flutter clean && \
+      flutter pub get
+    exec:
+      concurrency: 6
+    description: Clean Flutter package and install dependencies
+
+  build:clean:all:
+    run: melos run --no-select build:clean
+    description: Clean Flutter package and install dependencies for all packages
+
+  build:codegen:build:
+    run: flutter pub run build_runner build --delete-conflicting-outputs
+    exec:
+      concurrency: 1
+      orderDependents: true
+    select-package:
+      depends-on: "build_runner"
+    description: Run code generation using build_runner in a specific package
+
+  build:codegen:build:all:
+    run: melos run build:codegen:build --no-select
+    description: Run code generation using build_runner for all packages in the project
+
+  build:codegen:watch:
+    run: flutter pub run build_runner watch --delete-conflicting-outputs
+    exec:
+      concurrency: 1
+      orderDependents: true
+    select-package:
+      depends-on: "build_runner"
+    description: Run code generation using build_runner in a specific package, and watch any changes in this package
+
+  build:build-dev-app:
+    exec: flutter build appbundle --release --flavor dev -t lib/main_dev.dart
+    description: Build dev app
+    select-package:
+      scope: "zakaria_store"
+
+  build:build-uat-app:
+    exec: flutter build appbundle --release --flavor uat -t lib/main_uat.dart
+    description: Build UAT app
+    select-package:
+      scope: "zakaria_store"
+
+  build:build-prod-app:
+    exec: flutter build appbundle --release --flavor prod -t lib/main_prod.dart
+    description: Build prod app
+    select-package:
+      scope: "zakaria_store"
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+  flutter: ">=3.7.0 <4.0.0"

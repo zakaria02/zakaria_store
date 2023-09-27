@@ -13,6 +13,8 @@ import 'utils/di/locator.dart';
 import 'utils/network/app_path_provider.dart';
 import 'utils/router/router.dart';
 
+// this comment is used just to test the build ci
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // This will let us observe any change that is happening in the Bloc
